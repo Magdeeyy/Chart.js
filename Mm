@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>رسم بياني لإجراءات التظلم</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <canvas id="myChart"></canvas>
+
+  <script>
+    // البيانات
+    const data = {
+      labels: ['تقديم التظلم', 'بت الوزارة', 'رفع الدعوى', 'قرار الأحقية', 'التظلم للجهات الأخرى', 'بت الجهة مصدرة'],
+      datasets: [{
+        label: 'إجراءات التظلم في شؤون الخدمة المدنية',
+        data: [10, 60, 60, 60, 0, 0], // يمكنك تعديل القيم حسب الحاجة
+        borderColor: 'blue',
+        fill: false
+      },
+      {
+        label: 'إجراءات التظلم في شؤون غير متعلقة بالخدمة المدنية',
+        data: [0, 0, 0, 0, 60, 60],
+        borderColor: 'red',
+        fill: false
+      }]
+    };
+
+    // خيارات الرسم البياني
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // إنشاء الرسم البياني
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+  </script>
+</body>
+</html>
